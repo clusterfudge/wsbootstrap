@@ -1,0 +1,50 @@
+function dev() {
+  cd $HOME/development/$1
+  if [ -d "$HOME/.virtualenvs/$1" ]; then
+    source $HOME/.virtualenvs/$1/bin/activate
+  fi
+  if [[ "$2" = "sub" ]]; then 
+    sub $1 &
+  fi
+}
+
+_ssh()
+{
+    local cur opts
+
+    # the current partially completed word
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    # the list of possible options - what we have found reading known_hosts
+    opts=$(sed '{ s/^\([^ ]*\) .*$/\1/; s/^\(.*\),.*$/\1/ }' $HOME/.ssh/known_hosts)
+    # return the possible completions as a list
+    COMPREPLY=($(compgen -W "${opts}" ${cur}))
+}
+
+complete -F _ssh ssh scp
+
+function _dev() {
+  local cur prev opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+  opts="$(ls $HOME/development)"
+  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+}
+
+complete -o "default" -F "_dev" "dev"
+
+
+function _sub() {
+  local cur prev opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+  opts="$(ls $HOME/development)"
+  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+}
+
+function sub() {
+  sublime-text $HOME/development/$1
+}
+
+complete -a "default" -F "_sub" "sub"

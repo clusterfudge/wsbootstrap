@@ -1,0 +1,2 @@
+alias cr="upload.py -e sean.fitzgerald@hulu.com -s codereview.hulu.com"
+alias sshx='ssh -c arcfour,blowfish-cbc -XC'
