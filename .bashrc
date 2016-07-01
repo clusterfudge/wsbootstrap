@@ -6,7 +6,9 @@ TOP="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 #
 #
 #################################
+source ${TOP}/defaults.sh
 source ${TOP}/functions.sh
+
 
 # ensure bootstrap scripts are enabled
 ws_install bootstrap
