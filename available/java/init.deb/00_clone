@@ -4,12 +4,13 @@ JENV_DIR="${DEVELOPMENT_DIRECTORY}/jenv"
 
 if [ ! -d ${JENV_DIR} ]; then
     git clone https://github.com/gcuisinier/jenv.git ${JENV_DIR}
+    ${JENV_DIR}/bin/jenv add /usr/lib/jvm/java-1.6.0-openjdk-amd64
+    ${JENV_DIR}/bin/jenv add /usr/lib/jvm/java-1.7.0-openjdk-amd64
+
+    ${JENV_DIR}/bin/jenv global 1.7
 else
     cd ${JENV_DIR} && git pull
 fi
 
 
-${JENV_DIR}/bin/jenv add /usr/lib/jvm/java-1.6.0-openjdk-amd64
-${JENV_DIR}/bin/jenv add /usr/lib/jvm/java-1.7.0-openjdk-amd64
 
-${JENV_DIR}/bin/jenv global 1.7
