@@ -62,3 +62,11 @@ function ws_load() {
         done
     fi
 }
+
+function ws_disable() {
+    local pkg_name=$1
+    pkg_root="${TOP}/enabled/${pkg_name}"
+    if [ -e "${pkg_root}" ]; then
+        rm ${pkg_root}
+    fi
+}
