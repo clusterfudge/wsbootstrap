@@ -1,0 +1,15 @@
+DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-"${HOME}"}
+
+if [ ! -d ${DEVELOPMENT_DIRECTORY}/nvm ]; then
+    git clone https://github.com/creationix/nvm.git ${DEVELOPMENT_DIRECTORY}/nvm 
+    cd ${DEVELOPMENT_DIRECTORY}/nvm 
+    git checkout `git describe --abbrev=0 --tags`
+    source ${DEVELOPMENT_DIRECTORY}/nvm/nvm.sh
+    NODE_VERSION=$(nvm ls-remote | tail -n 1)
+    nvm install ${NODE_VERSION}
+    nvm alias default ${NODE_VERSION}
+else
+    cd ${DEVELOPMENT_DIRECTORY}/nvm 
+    git pull
+fi
+
