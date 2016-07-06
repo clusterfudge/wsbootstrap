@@ -1,4 +1,4 @@
-if [ -l ~/.bashrc ]; then
+if [ -L ~/.bashrc ]; then
   TOP="$( cd "$( dirname $(readlink "${BASH_SOURCE[0]}"))" && pwd )"
 else
   TOP="$( cd "$( dirname "${BASH_SOURCE[0]}")" && pwd )"
