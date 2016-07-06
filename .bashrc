@@ -1,4 +1,8 @@
-TOP="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+if [ -l ~/.bashrc ]; then
+  TOP="$( cd "$( dirname $(readlink "${BASH_SOURCE[0]}"))" && pwd )"
+else
+  TOP="$( cd "$( dirname "${BASH_SOURCE[0]}")" && pwd )"
+fi
 
 #################################
 # wsbootstrap entry point
