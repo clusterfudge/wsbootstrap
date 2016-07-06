@@ -1,0 +1,2 @@
+DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-"${HOME}"}
+sudo pip install virtualenvwrapper

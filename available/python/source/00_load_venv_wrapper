@@ -1,0 +1,5 @@
+DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-"${HOME}"}
+
+WORKON_HOME=${HOME}/.virtualenvs
+PROJECT_HOME=${DEVELOPMENT_DIRECTORY}
+source $(which virtualenvwrapper.sh)

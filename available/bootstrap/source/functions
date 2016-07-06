@@ -1,5 +1,6 @@
+DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-"${HOME}"}
 function dev() {
-  cd $HOME/development/$1
+  cd ${DEVELOPMENT_DIRECTORY}/$1
   if [ -d "$HOME/.virtualenvs/$1" ]; then
     source $HOME/.virtualenvs/$1/bin/activate
   fi
@@ -39,12 +40,12 @@ function _sub() {
   COMPREPLY=()
   cur="${COMP_WORDS[COMP_CWORD]}"
   prev="${COMP_WORDS[COMP_CWORD-1]}"
-  opts="$(ls $HOME/development)"
+  opts="$(ls ${DEVELOPMENT_DIRECTORY})"
   COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
 }
 
 function sub() {
-  sublime-text $HOME/development/$1
+  sublime-text ${DEVELOPMENT_DIRECTORY}/$1
 }
 
 complete -a "default" -F "_sub" "sub"
