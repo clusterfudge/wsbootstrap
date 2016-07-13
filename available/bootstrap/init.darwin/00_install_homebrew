@@ -1,0 +1,2 @@
+# This will install (or update, if already present) homebrew without waiting for any confirmation messages
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | /usr/bin/ruby
