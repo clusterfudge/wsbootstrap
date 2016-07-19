@@ -1,0 +1,4 @@
+export GOPATH=~/development/go
+GOBIN=$GOPATH
+PATH=${PATH}:${GOPATH}/bin
+mkdir -p ${GOPATH}
