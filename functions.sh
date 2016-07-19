@@ -52,6 +52,16 @@ function ws_install() {
     fi
 }
 
+function ws_installed() {
+    ls ${TOP}/enabled
+}
+
+function ws_available() {
+    # TODO: indicate which are already installed/disabled
+    # indicate availability by platform
+    ls ${TOP}/available
+}
+
 function ws_load() {
     local pkg_name=$1
     # Source installed applications
