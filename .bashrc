@@ -18,6 +18,6 @@ source ${TOP}/functions.sh
 ws_install bootstrap
 
 # load enabled packages
-for pkg_name in $(ls ${TOP}/enabled/); do
+for pkg_name in $(ls ${WSBOOTSTRAP_STATE_DIR}/enabled/); do
 	ws_load ${pkg_name}
 done

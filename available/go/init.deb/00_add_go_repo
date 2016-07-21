@@ -1,5 +1,5 @@
 # Adding ubuntu-lxc stable repo
-if [ -n "$(which go)" ]; then
+if [ -z "$(which go)" ]; then
   echo Adding ubuntu-lxc stable repo
   sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
   sudo apt-get update

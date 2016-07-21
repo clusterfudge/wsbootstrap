@@ -19,13 +19,15 @@ fi
 
 # initialize directory structure
 mkdir -p ${DEVELOPMENT_DIRECTORY}
+mkdir -p ${WSBOOTSTRAP_STATE_DIR}
 
 
 function ws_install() {
     local pkg_name=$1
-    if [ -d ${TOP}/available/${pkg_name} ] && [ ! -d ${TOP}/enabled/${pkg_name} ]; then
+    if [ -d ${TOP}/available/${pkg_name} ] && [ ! -d ${WSBOOTSTRAP_STATE_DIR}/enabled/${pkg_name} ]; then
         # link the package into enabled
-        installed_dir="${TOP}/enabled/${pkg_name}"
+        mkdir -p ${WSBOOTSTRAP_STATE_DIR}/enabled
+        installed_dir="${WSBOOTSTRAP_STATE_DIR}/enabled/${pkg_name}"
         ln -s ${TOP}/available/${pkg_name} ${installed_dir}
 
         # install any native dependencies
@@ -53,7 +55,7 @@ function ws_install() {
 }
 
 function ws_installed() {
-    ls ${TOP}/enabled
+    ls ${WSBOOTSTRAP_STATE_DIR}/enabled
 }
 
 function ws_available() {
@@ -65,7 +67,7 @@ function ws_available() {
 function ws_load() {
     local pkg_name=$1
     # Source installed applications
-    pkg_root="${TOP}/enabled/${pkg_name}"
+    pkg_root="${WSBOOTSTRAP_STATE_DIR}/enabled/${pkg_name}"
     if [ -d "${pkg_root}/source" ]; then
         for f in $(ls ${pkg_root}/source/); do
             source ${pkg_root}/source/${f}
@@ -75,7 +77,7 @@ function ws_load() {
 
 function ws_disable() {
     local pkg_name=$1
-    pkg_root="${TOP}/enabled/${pkg_name}"
+    pkg_root="${WSBOOTSTRAP_STATE_DIR}/enabled/${pkg_name}"
     if [ -e "${pkg_root}" ]; then
         rm ${pkg_root}
     fi
