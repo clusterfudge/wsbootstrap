@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-${HOME}}
+
+${DEVELOPMENT_DIRECTORY}/google-cloud-sdk/install.sh \
+    --rc-path ${DEVELOPMENT_DIRECTORY}/google-cloud-sdk/rcfile \
+    --command-completion true \
+    --command-completion true \
+    -q
+
+    
