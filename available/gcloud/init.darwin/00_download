@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-${HOME}}
-SDK_DOWNLOAD_URL="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-116.0.0-linux-x86_64.tar.gz"
+SDK_DOWNLOAD_URL="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-118.0.0-darwin-x86_64.tar.gz"
 
 DOWNLOAD_TARGET=/tmp/$(basename ${SDK_DOWNLOAD_URL})
 
