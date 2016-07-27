@@ -1,0 +1,14 @@
+#!/bin/bash -x
+
+DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-${HOME}/development}
+GROOVY_VERSION="2.4.7"
+GROOVY_SDK_DIR=${DEVELOPMENT_DIRECTORY}/groovy
+mkdir -p ${GROOVY_SDK_DIR}
+
+GROOVY_ARTIFACT_URL="https://bintray.com/artifact/download/groovy/maven/apache-groovy-binary-${GROOVY_VERSION}.zip"
+
+curl -o /tmp/$(basename ${GROOVY_ARTIFACT_URL}) ${GROOVY_ARTIFACT_URL}
+cd ${GROOVY_SDK_DIR}
+unzip /tmp/$(basename ${GROOVY_ARTIFACT_URL})
+rm -f current
+ln -s ${GROOVY_SDK_DIR}/$(basename ${GROOVY_ARTIFACT_URL}) ${GROOVY_SDK_DIR}/current
