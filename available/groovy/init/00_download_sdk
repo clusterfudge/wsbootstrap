@@ -7,8 +7,8 @@ mkdir -p ${GROOVY_SDK_DIR}
 
 GROOVY_ARTIFACT_URL="https://bintray.com/artifact/download/groovy/maven/apache-groovy-binary-${GROOVY_VERSION}.zip"
 
-curl -o /tmp/$(basename ${GROOVY_ARTIFACT_URL}) ${GROOVY_ARTIFACT_URL}
+curl -L -o /tmp/$(basename ${GROOVY_ARTIFACT_URL}) ${GROOVY_ARTIFACT_URL}
 cd ${GROOVY_SDK_DIR}
 unzip /tmp/$(basename ${GROOVY_ARTIFACT_URL})
 rm -f current
-ln -s ${GROOVY_SDK_DIR}/$(basename ${GROOVY_ARTIFACT_URL}) ${GROOVY_SDK_DIR}/current
+ln -s ${GROOVY_SDK_DIR}/groovy-${GROOVY_VERSION} ${GROOVY_SDK_DIR}/current
