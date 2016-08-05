@@ -11,7 +11,7 @@ if [ -n "$(which apt-get)" ]; then
     PACKAGE_INSTALLER="sudo $(which apt-get) install -y"
     PACKAGE_TYPE="deb"
     PLATFORM="linux"
-elif [ -n "$(which brew)" ]; then
+elif [ "$(uname)" == "Darwin" ]; then
     PACKAGE_INSTALLER="$(which brew) install"
     PACKAGE_TYPE="brew"
     PLATFORM="darwin"
