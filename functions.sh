@@ -82,3 +82,7 @@ function ws_disable() {
         rm ${pkg_root}
     fi
 }
+
+function ws_update() {
+    curl https://raw.githubusercontent.com/clusterfudge/wsbootstrap-installer/master/installer.py | python
+}
