@@ -1,0 +1,18 @@
+DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-"${HOME}"}
+
+# we depend on the java package
+source ${FUNCTIONS_SCRIPT}
+ws_install java
+
+ARTIFACT_URL="https://download.jetbrains.com/python/pycharm-community-2016.2.1.tar.gz"
+IDE_DIR="${DEVELOPMENT_DIRECTORY}/ides"
+
+DOWNLOAD_DEST=${IDE_DIR}/pycharm/$(basename ${ARTIFACT_URL})
+
+mkdir -p ${IDE_DIR}/pycharm
+wget -c -O ${DOWNLOAD_DEST} ${ARTIFACT_URL}
+cd ${IDE_DIR}/pycharm
+tar -xzf ${DOWNLOAD_DEST}
+rm -f ${IDE_DIR}/pycharm/current
+VERSION_DIR=$(ls -t | head -n 1)
+ln -s ${IDE_DIR}/pycharm/${VERSION_DIR} ${IDE_DIR}/pycharm/current
