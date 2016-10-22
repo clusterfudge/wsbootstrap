@@ -4,7 +4,7 @@ DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-"${HOME}"}
 source ${FUNCTIONS_SCRIPT}
 ws_install java
 
-ARTIFACT_URL="https://download.jetbrains.com/python/pycharm-community-2016.2.1.tar.gz"
+ARTIFACT_URL="https://download.jetbrains.com/python/pycharm-professional-2016.2.3.tar.gz"
 IDE_DIR="${DEVELOPMENT_DIRECTORY}/ides"
 
 DOWNLOAD_DEST=${IDE_DIR}/pycharm/$(basename ${ARTIFACT_URL})
