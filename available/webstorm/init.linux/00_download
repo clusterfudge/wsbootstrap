@@ -1,0 +1,18 @@
+DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-"${HOME}"}
+
+# we depend on the java package
+source ${FUNCTIONS_SCRIPT}
+ws_install java
+
+ARTIFACT_URL="https://download.jetbrains.com/webstorm/WebStorm-2016.3.2.tar.gz"
+IDE_DIR="${DEVELOPMENT_DIRECTORY}/ides"
+
+DOWNLOAD_DEST=${IDE_DIR}/webstorm/$(basename ${ARTIFACT_URL})
+
+mkdir -p ${IDE_DIR}/webstorm
+wget -c -O ${DOWNLOAD_DEST} ${ARTIFACT_URL}
+cd ${IDE_DIR}/webstorm
+tar -xzf ${DOWNLOAD_DEST}
+rm -f ${IDE_DIR}/webstorm/current
+VERSION_DIR=$(ls -t | head -n 1)
+ln -s ${IDE_DIR}/webstorm/${VERSION_DIR} ${IDE_DIR}/webstorm/current
