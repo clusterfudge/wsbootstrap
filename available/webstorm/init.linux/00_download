@@ -4,7 +4,7 @@ DEVELOPMENT_DIRECTORY=${DEVELOPMENT_DIRECTORY:-"${HOME}"}
 source ${FUNCTIONS_SCRIPT}
 ws_install java
 
-ARTIFACT_URL="https://download.jetbrains.com/webstorm/WebStorm-2016.3.2.tar.gz"
+ARTIFACT_URL="https://download.jetbrains.com/webstorm/WebStorm-2017.2.tar.gz"
 IDE_DIR="${DEVELOPMENT_DIRECTORY}/ides"
 
 DOWNLOAD_DEST=${IDE_DIR}/webstorm/$(basename ${ARTIFACT_URL})
